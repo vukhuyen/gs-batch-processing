@@ -39,7 +39,7 @@ public class BatchConfiguration {
         return new FlatFileItemReaderBuilder<Person>()
             .name("personItemReader")
             .resource(new ClassPathResource("sample-data.csv"))
-            .delimited()
+            .delimited(DelimitedLineTokenizer.DEFAULT_QUOTE_CHARACTER)
             .names(new String[]{"firstName", "lastName"})
             .fieldSetMapper(new BeanWrapperFieldSetMapper<Person>() {{
                 setTargetType(Person.class);
